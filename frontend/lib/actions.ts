@@ -14,7 +14,7 @@ export const getUser = async (username: string) => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 10,
+        revalidate: 1,
         tags: ['gh-user'],
       },
     },
@@ -30,6 +30,10 @@ export const getUser = async (username: string) => {
 export const getCurrentUser = async () => {
   const token = cookies().get('__token');
 
+  if (!token?.name) {
+    return null;
+  }
+
   const response = await fetch(
     `${String(process.env.API_URL)}/users/profile/me`,
     {
@@ -37,7 +41,7 @@ export const getCurrentUser = async () => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 10,
+        revalidate: 1,
         tags: ['gh-profile'],
       },
     },
@@ -64,7 +68,7 @@ export const getUserVisitors = async (username: string) => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 10,
+        revalidate: 1,
         tags: ['gh-user-visitor'],
       },
     },
@@ -85,7 +89,7 @@ export const getUserRepos = async (username: string) => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 10,
+        revalidate: 1,
         tags: ['gh-user-repos'],
       },
     },

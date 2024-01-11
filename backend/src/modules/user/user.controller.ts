@@ -35,6 +35,9 @@ export const getUser: RequestHandler = async (req, res) => {
         bio: githubUser.bio,
         image: githubUser.avatar_url,
         name: githubUser.name,
+        followers: githubUser.followers,
+        following: githubUser.following,
+        publicRepos: githubUser.public_repos,
       });
 
       if (authedUser && authedUser.id !== currentUser.id) {
@@ -51,6 +54,9 @@ export const getUser: RequestHandler = async (req, res) => {
       image: githubUser.avatar_url,
       name: githubUser.name,
       visitCount: 1,
+      followers: githubUser.followers,
+      following: githubUser.following,
+      publicRepos: githubUser.public_repos,
     });
 
     if (authedUser) {

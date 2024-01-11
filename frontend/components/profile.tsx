@@ -4,11 +4,16 @@ import React from 'react';
 import { User } from '../types';
 import Image from 'next/image';
 import EmailIcon from './icons/email-icon';
-import { login } from '@/lib/actions';
 import PeopleIcon from './icons/people-icon';
 import { useRouter } from 'next/navigation';
 
-const Profile = ({ user }: { user: User | null }) => {
+const Profile = ({
+  user,
+  currentUser,
+}: {
+  user: User | null;
+  currentUser: User | null;
+}) => {
   const router = useRouter();
 
   if (!user) return null;
@@ -30,6 +35,10 @@ const Profile = ({ user }: { user: User | null }) => {
           <p className="leading-6 text-slate-700 lg:text-center">
             @{user.providerUserName}
           </p>
+          <p className="text-xs">
+            <b>{user.followers}</b> followers · <b>{user.following}</b>{' '}
+            following
+          </p>
         </div>
       </div>
 
@@ -39,8 +48,8 @@ const Profile = ({ user }: { user: User | null }) => {
 
         <div className="flex items-center mt-4 space-x-2">
           <EmailIcon />
-          {user.email ? (
-            <p>{user.email}</p>
+          {user.email && !!currentUser ? (
+            <p>{user.email || '-'}</p>
           ) : (
             <button
               onClick={() => router.push('/api/auth/login')}

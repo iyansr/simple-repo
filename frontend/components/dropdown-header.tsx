@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { logOut, login } from '@/lib/actions';
+import { logOut } from '@/lib/actions';
 
 import Image from 'next/image';
 import { User } from '../types';

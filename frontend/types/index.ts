@@ -8,6 +8,9 @@ export type User = {
   accessToken: string | null;
   bio: string | null;
   visitCount: number;
+  followers: number;
+  following: number;
+  publicRepos: number;
 };
 
 export type Visitors = {

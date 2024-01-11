@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "nodemon -w src -x tsx src/main.ts",
     "start": "NODE_ENV=production tsx src/main.ts",
-    "build": "vite build"
+    "build": "vite build",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:push": "drizzle-kit push:pg",
+    "db:migrate": "tsx migrate.ts"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.5",

@@ -19,6 +19,9 @@ export type GithubUser = {
   name: string;
   email: string | null;
   bio: string | null;
+  followers: number;
+  following: number;
+  public_repos: number;
 };
 
 export type GithubRepoRaw = {

@@ -15,6 +15,9 @@ export const users = pgTable('user', {
   providerUserName: text('provider_user_name').notNull().unique(),
   accessToken: text('access_token'),
   visitCount: integer('visit_count').notNull().default(0),
+  followers: integer('followers').default(0),
+  following: integer('following').default(0),
+  publicRepos: integer('public_repos').default(0),
 });
 
 export const visitor = pgTable('visitor', {

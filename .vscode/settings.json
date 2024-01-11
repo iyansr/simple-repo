@@ -5,4 +5,7 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.configPath": ".prettierrc",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/pintu/Iyan/Projects/Personal/Asessment/fullstack-test/.github/workflows/frontend/preview.yaml"
+  },
 }

@@ -14,7 +14,6 @@ export const getUser = async (username: string) => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 1,
         tags: ['gh-user'],
       },
     },
@@ -41,7 +40,6 @@ export const getCurrentUser = async () => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 1,
         tags: ['gh-profile'],
       },
     },
@@ -68,7 +66,6 @@ export const getUserVisitors = async (username: string) => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 1,
         tags: ['gh-user-visitor'],
       },
     },
@@ -89,7 +86,6 @@ export const getUserRepos = async (username: string) => {
         ...(token?.value ? { authorization: `Bearer ${token?.value}` } : {}),
       },
       next: {
-        revalidate: 1,
         tags: ['gh-user-repos'],
       },
     },

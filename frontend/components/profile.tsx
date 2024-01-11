@@ -6,8 +6,11 @@ import Image from 'next/image';
 import EmailIcon from './icons/email-icon';
 import { login } from '@/lib/actions';
 import PeopleIcon from './icons/people-icon';
+import { useRouter } from 'next/navigation';
 
 const Profile = ({ user }: { user: User | null }) => {
+  const router = useRouter();
+
   if (!user) return null;
 
   return (
@@ -40,7 +43,7 @@ const Profile = ({ user }: { user: User | null }) => {
             <p>{user.email}</p>
           ) : (
             <button
-              onClick={() => login()}
+              onClick={() => router.push('/api/auth/login')}
               className="text-xs px-2 py-1 border border-slate-100 bg-white"
             >
               Login to see

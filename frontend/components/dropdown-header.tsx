@@ -15,12 +15,15 @@ import { logOut, login } from '@/lib/actions';
 
 import Image from 'next/image';
 import { User } from '../types';
+import { useRouter } from 'next/navigation';
 
 const DropdownHeader = ({ user }: { user: User | null }) => {
+  const router = useRouter();
+
   if (!user) {
     return (
       <button
-        onClick={() => login()}
+        onClick={() => router.push('/api/auth/login')}
         className="text-sm bg-pink-500 font-semibold text-white px-4 py-2 rounded-md"
       >
         Login With Github

@@ -4,8 +4,8 @@
   "description": "Wrapper package for formatting and linting purposes",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --config .prettierrc --write ./**/*.{html,ts,tsx,json,yml}",
-    "format:check": "prettier --config .prettierrc --check ./**/*.{html,ts,tsx,json,yml}",
+    "format": "prettier --config .prettierrc --write ./**/*.{ts,tsx}",
+    "format:check": "prettier --config .prettierrc --check ./**/*.{ts,tsx}",
     "prepare": "node ./prepare.js",
     "lint-staged": "lint-staged"
   },

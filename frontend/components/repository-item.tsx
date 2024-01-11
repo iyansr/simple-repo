@@ -18,7 +18,7 @@ const RepositoryItem = ({ repo }: { repo: GithubRepo }) => {
       </div>
       <p className="mt-2 leading-5 text-slate-700">{repo.description}</p>
 
-      <div>Update Just Now</div>
+      <div>{repo.updated_at}</div>
     </div>
   );
 };

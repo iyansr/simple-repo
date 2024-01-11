@@ -109,7 +109,3 @@ export const logOut = () => {
 
   redirect('/octocat');
 };
-
-export const login = () => {
-  redirect(`${process.env.API_URL}/auth/github`);
-};

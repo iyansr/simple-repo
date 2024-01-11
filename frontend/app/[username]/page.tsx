@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+
 import { RepositoryItemFallback } from '@/components/repository-item';
 import { User } from '@/types/index';
 import { getUser } from '@/lib/actions';

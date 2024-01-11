@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { MenuIcon } from 'lucide-react';
+import Link from 'next/link';
 
 import {
   DropdownMenu,
@@ -9,11 +11,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { MenuIcon } from 'lucide-react';
+import { logOut, login } from '@/lib/actions';
+
 import Image from 'next/image';
 import { User } from '../types';
-import Link from 'next/link';
-import { logOut, login } from '@/lib/actions';
 
 const DropdownHeader = ({ user }: { user: User | null }) => {
   if (!user) {

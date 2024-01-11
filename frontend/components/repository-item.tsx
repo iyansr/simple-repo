@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { formatDistanceToNow } from 'date-fns';
 
 import { GithubRepo } from '@/types/index';
 
@@ -19,9 +20,23 @@ const RepositoryItem = ({ repo }: { repo: GithubRepo }) => {
           </span>
         )}
       </div>
-      <p className="mt-2 leading-5 text-slate-700">{repo.description}</p>
+      <p className="mt-2 leading-5 text-slate-700 mb-6">{repo.description}</p>
 
-      <div>{repo.updated_at}</div>
+      <div className="flex items-center space-x-4">
+        {repo.language.name && (
+          <div className="flex items-center space-x-2">
+            <div
+              className="h-2 w-2 rounded-full"
+              style={{ background: repo.language.color }}
+            />
+
+            <span className="text-xs">{repo.language.name}</span>
+          </div>
+        )}
+        <span className="text-xs text-slate-500">
+          updated {formatDistanceToNow(new Date(repo.updated_at))} ago
+        </span>
+      </div>
     </div>
   );
 };

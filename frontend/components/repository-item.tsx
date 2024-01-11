@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { GithubRepo } from '../types';
+import { GithubRepo } from '@/types/index';
 
 const RepositoryItem = ({ repo }: { repo: GithubRepo }) => {
   return (

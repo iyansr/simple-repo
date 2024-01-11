@@ -69,7 +69,7 @@ export const verifyJWT = async (req: Request) => {
 passport.use(
   new Strategy(
     {
-      callbackURL: '/auth/github/callback',
+      callbackURL: String(process.env.GITHUB_CALLBACK_URL),
       clientID: String(process.env.GITHUB_CLIENT_ID),
       clientSecret: String(process.env.GITHUB_SECRET),
       scope: ['public_profile', 'repo'],

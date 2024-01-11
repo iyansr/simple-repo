@@ -45,7 +45,7 @@ const DropdownHeader = ({ user }: { user: User | null }) => {
           <MenuIcon />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent align="end">
         <DropdownMenuItem className="flex items-center space-x-4">
           <Image
             src={String(user.image)}

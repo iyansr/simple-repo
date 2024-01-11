@@ -1,21 +1,13 @@
 import React, { Suspense } from 'react';
 
 import { RepositoryItemFallback } from '@/components/repository-item';
-import { User } from '@/types/index';
 import { getCurrentUser, getUser } from '@/lib/actions';
 import Visitor from '@/components/visitors';
 import VisitorFallback from '@/components/visitor-fallback';
 import Repositories from '@/components/repositories';
 import Profile from '@/components/profile';
 
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const response = await fetch(`${String(process.env.API_URL)}/users`);
-  const json = (await response.json()) as { users: User[] };
-
-  return json.users.map((user) => ({ username: user.providerUserName }));
-}
+export const dynamic = 'force-dynamic';
 
 type Props = {
   params: {

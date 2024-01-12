@@ -11,7 +11,7 @@ export const GET = (req: NextRequest) => {
   cookies().set({
     name: '__token',
     value: token,
-    maxAge: 1000 * 60 * 60 * 24 * 2,
+    maxAge: 1000 * 60 * 60 * 7,
     httpOnly: true,
   });
 

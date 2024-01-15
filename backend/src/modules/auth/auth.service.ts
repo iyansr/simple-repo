@@ -54,16 +54,20 @@ export const verifyJWT = async (req: Request) => {
     return null;
   }
 
-  const decoded = await verifyAsync<JWTPayload>(
-    token,
-    String(process.env.JWT_SECRET),
-  );
+  try {
+    const decoded = await verifyAsync<JWTPayload>(
+      token,
+      String(process.env.JWT_SECRET),
+    );
 
-  if (!decoded) {
+    if (!decoded) {
+      return null;
+    }
+
+    return decoded;
+  } catch {
     return null;
   }
-
-  return decoded;
 };
 
 passport.use(
